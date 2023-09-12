@@ -7,10 +7,10 @@ class Solution:
         while r < len(prices) :
             if prices[l] < prices[r] :
                 result = prices[r] - prices[l]
-                maxH = max(maxH, result) 
+                maxH = max(result, maxH)
 
             else :
-                l = r
+                l = r 
 
             r = r + 1
 

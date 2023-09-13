@@ -1,26 +1,25 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-      #firstly lowercase the letter 
-      sLower = s.lower()
+        #firstly conert all the uppercase into lowercase
+        isLower = s.lower()
+        #print(isLower)
 
-      #secondly remove all the alphanumeric ch and spaces from the string
-      sAlphaNum = ""
-      for ch in sLower :
-        if ch.isalnum() :
-          sAlphaNum = ch + sAlphaNum
+        #secondly remove all thee  alphanumeric char from the string 
+        newS = ""
+        for ch in isLower :
+          if ch.isalnum() :
+            newS = newS + ch
 
-      print(sAlphaNum)
+        print(newS)
 
-      #finally check the string froward and backward is same or not 
-      strpointer = 0
-      endpointer = len(sAlphaNum) - 1
+        #finally check it reads the same forward and backward
+        firstSTR = 0
+        lastSTR = len(newS) - 1
+        while firstSTR < lastSTR :
+          if newS[firstSTR] !=  newS[lastSTR] :
+            return False 
 
-      while strpointer < endpointer :
-        if sAlphaNum[strpointer] != sAlphaNum[endpointer] :
-          return False
+          firstSTR = firstSTR + 1
+          lastSTR = lastSTR - 1
 
-        strpointer = strpointer + 1
-        endpointer = endpointer - 1
-
-      return True
-        
+        return True

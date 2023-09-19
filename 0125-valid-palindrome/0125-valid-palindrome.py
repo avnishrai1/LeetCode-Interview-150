@@ -1,25 +1,23 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        #firstly convert all uppercase into lowercase
-        isLower = s.lower()
-
-        #secondly filter the alphanumeric values
+        #firstly convert all the uppercase into lowercase
+        sLower = s.lower()
+        
+        #now remove all alphanumeric char
         alphaNum = ""
-
-        for ch in isLower :
+        for ch in sLower :
             if ch.isalnum() :
                 alphaNum += ch
 
-        #finally check the string forwardly and backwardly
-        startPTR = 0
-        endPTR = len(alphaNum) - 1
+        #now compare forward and backward
+        startSTR = 0
+        endSTR = len(alphaNum) - 1
 
-        while startPTR < endPTR :
-            if alphaNum[startPTR] !=  alphaNum[endPTR] :
+        while startSTR < endSTR :
+            if alphaNum[startSTR] != alphaNum[endSTR] :
                 return False
-            
-            startPTR += 1
-            endPTR -= 1
+
+            startSTR += 1
+            endSTR -= 1
 
         return True
-
